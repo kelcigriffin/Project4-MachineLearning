@@ -28,6 +28,8 @@ Then, to further decrease the mean errors, square footage data was added to the 
 
 ## Javascript Visualization
 
+The visualization depicts the location of the residential dwellings used in the predictive model. When clicked on, the pop up will show you the actual sale price and predicted value.
+
 ## Kyle Classification Model
 
 The data was imported into the Kyle Random Forest Jupyter notebook. Rows with NaN values were then dropped, and some additional columns were removed. I decided to drop rows with sale price < 100000 since there were a lot of homes sold for $1, which is not realistic. Dummy variables were obtained for any columns with catagorical data. A new calculated column was created to find the difference between the sale price and the estimated total price. From this, a boolean column "Sale Outcome" was created where any houses whose sale price exceeded the estimated price recieved a 1, and any sale price that didn't recieved a 0. The Sale Outcome column was made the y column, with the x value being all other chosen columns. A logistic regression model was run with 20000 iterations, and the predicted values for the testing dataset were compared to the true testing dataset. The model had an accuracy of 72%, but this is misleading because the model was okay at predicting cases where the predicted price exceeded the sales price, with a precision of 72% and a recall of 99%. However, for predicting cases where the sales price exceeded the predicted price, the model performed abysmally with a precison of 26% and a recall of .01. Thus, it can be concluded that this model is completely ineffective in predicting differences between estimated price and sale price.
